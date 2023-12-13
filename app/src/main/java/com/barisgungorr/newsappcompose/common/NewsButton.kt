@@ -16,7 +16,6 @@ fun NewsButton(
     text: String,
     onClick: () -> Unit,
 ) {
-
     Button(
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(
@@ -31,7 +30,6 @@ fun NewsButton(
         )
     }
 }
-
 @Composable
 fun NewsTextButton(
     text: String,

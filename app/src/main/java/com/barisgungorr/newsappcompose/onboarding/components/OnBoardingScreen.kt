@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import com.barisgungorr.newsappcompose.common.NewsButton
 import com.barisgungorr.newsappcompose.common.NewsTextButton
 import com.barisgungorr.newsappcompose.presentation.Dimens.MediumPadding2
+import com.barisgungorr.newsappcompose.presentation.Dimens.pageIndicator
 import com.barisgungorr.newsappcompose.presentation.pages
 import kotlinx.coroutines.launch
 
@@ -46,6 +47,7 @@ fun OnBoardingScreen() {
             OnBoardingPage(page = pages[index])
         }
         Spacer(modifier = Modifier.weight(1f))
+
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -55,10 +57,11 @@ fun OnBoardingScreen() {
             verticalAlignment = Alignment.CenterVertically
         ) {
             PagerIndicator(
-                modifier = Modifier.width(52.dp),
+                modifier = Modifier.width(pageIndicator),
                 pagesSize = pages.size,
                 selectedPage = pagerState.currentPage
             )
+
 
             Row(verticalAlignment = Alignment.CenterVertically) {
                 val scope = rememberCoroutineScope()
@@ -80,9 +83,9 @@ fun OnBoardingScreen() {
                     text = buttonsState.value[1],
                     onClick = {
                         scope.launch {
-                            if (pagerState.currentPage == 3){
+                            if (pagerState.currentPage == 3) {
                                 //Navigate to the main screen and save a value in datastore preferences
-                            }else{
+                            } else {
                                 pagerState.animateScrollToPage(
                                     page = pagerState.currentPage + 1
                                 )
@@ -95,3 +98,5 @@ fun OnBoardingScreen() {
         Spacer(modifier = Modifier.weight(0.5f))
     }
 }
+
+
