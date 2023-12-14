@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.barisgungorr.newsappcompose.common.NewsButton
 import com.barisgungorr.newsappcompose.common.NewsTextButton
+import com.barisgungorr.newsappcompose.onboarding.OnBoardingEvent
 import com.barisgungorr.newsappcompose.presentation.Dimens.MediumPadding2
 import com.barisgungorr.newsappcompose.presentation.Dimens.pageIndicator
 import com.barisgungorr.newsappcompose.presentation.pages
@@ -28,7 +29,9 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnBoardingScreen() {
+fun OnBoardingScreen(
+    event: (OnBoardingEvent) -> Unit
+) {
     Column(modifier = Modifier.fillMaxSize()) {
         val pagerState = rememberPagerState(initialPage = 0) {
             pages.size
@@ -83,8 +86,8 @@ fun OnBoardingScreen() {
                     text = buttonsState.value[1],
                     onClick = {
                         scope.launch {
-                            if (pagerState.currentPage == 3) {
-                                //Navigate to the main screen and save a value in datastore preferences
+                            if (pagerState.currentPage == 2) {
+                                event(OnBoardingEvent.SaveAppEntry) // amacımız, kullanıcı uygulamaya ilk girdiğinde onboarding ekranını göstermek ve kullanıcı onboarding ekranını geçtiğinde kullanıcıyı ana ekrana yönlendirmek.
                             } else {
                                 pagerState.animateScrollToPage(
                                     page = pagerState.currentPage + 1
