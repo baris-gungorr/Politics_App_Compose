@@ -79,5 +79,12 @@ dependencies {
     implementation ("androidx.hilt:hilt-navigation-compose:1.1.0")
     //Splash Api
     implementation ("androidx.core:core-splashscreen:1.0.1")
+    //Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.6.0")
+    implementation("com.google.code.gson:gson:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.5.0")
+    //Paging
+    implementation ("androidx.paging:paging-compose:3.3.0-alpha02")
+    implementation("androidx.paging:paging-runtime:3.3.0-alpha02")
 
 }

@@ -6,17 +6,17 @@ sealed class Route(
     val route: String,
     val arguments: List<NamedNavArgument> = emptyList()
 ) {
-    object OnBoardingScreen : Route(route = "onBoardingScreen")
+    data object OnBoardingScreen : Route(route = "onBoardingScreen")
 
-    object HomeScreen : Route(route = "homeScreen")
+    data object HomeScreen : Route(route = "homeScreen")
 
-    object SearchScreen : Route(route = "searchScreen")
+    data object SearchScreen : Route(route = "searchScreen")
 
-    object BookmarkScreen : Route(route = "bookMarkScreen")
+    data object BookmarkScreen : Route(route = "bookMarkScreen")
 
-    object DetailsScreen : Route(route = "detailsScreen")
+    data object DetailsScreen : Route(route = "detailsScreen")
 
-    object AppStartNavigation : Route(route = "appStartNavigation")
+    data object AppStartNavigation : Route(route = "appStartNavigation")
 
-    object NewsNavigation : Route(route = "newsNavigation")
+    data object NewsNavigation : Route(route = "newsNavigation")
 }

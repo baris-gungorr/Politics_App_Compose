@@ -1,4 +1,4 @@
-package com.barisgungorr.newsappcompose.domain.usecases
+package com.barisgungorr.newsappcompose.domain.usecases.app_entry
 
 import com.barisgungorr.newsappcompose.domain.manager.LocalUserManager
 

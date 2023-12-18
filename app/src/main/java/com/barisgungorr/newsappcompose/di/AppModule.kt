@@ -3,9 +3,9 @@ package com.barisgungorr.newsappcompose.di
 import android.app.Application
 import com.barisgungorr.newsappcompose.data.manager.LocalUserImplementation
 import com.barisgungorr.newsappcompose.domain.manager.LocalUserManager
-import com.barisgungorr.newsappcompose.domain.usecases.AppEntryUseCases
-import com.barisgungorr.newsappcompose.domain.usecases.ReadAppEntry
-import com.barisgungorr.newsappcompose.domain.usecases.SaveAppEntry
+import com.barisgungorr.newsappcompose.domain.usecases.app_entry.AppEntryUseCases
+import com.barisgungorr.newsappcompose.domain.usecases.app_entry.ReadAppEntry
+import com.barisgungorr.newsappcompose.domain.usecases.app_entry.SaveAppEntry
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,6 +29,7 @@ object AppModule {
         localUserManager: LocalUserManager
     )= AppEntryUseCases(
         saveAppEntry = SaveAppEntry(localUserManager),
-        readAppEntry = ReadAppEntry(localUserManager))
+        readAppEntry = ReadAppEntry(localUserManager)
+    )
 
 }
