@@ -86,5 +86,14 @@ dependencies {
     //Paging
     implementation ("androidx.paging:paging-compose:3.3.0-alpha02")
     implementation("androidx.paging:paging-runtime:3.3.0-alpha02")
+    //Accompanist
+    implementation ("com.google.accompanist:accompanist-systemuicontroller:0.31.4-beta")
 
+    //Coil
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
+
+
+    //Compose Foundation
+    implementation ("androidx.compose.foundation:foundation:1.4.3")
 }

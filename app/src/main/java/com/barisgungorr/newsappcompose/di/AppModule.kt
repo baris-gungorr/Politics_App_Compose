@@ -38,7 +38,8 @@ object AppModule {
         saveAppEntry = SaveAppEntry(localUserManager),
         readAppEntry = ReadAppEntry(localUserManager)
     )
-
+    @Provides
+    @Singleton
     fun provideNewsApi(): NewsApi = Retrofit.Builder()
         .baseUrl("https://newsapi.org/v2/")
         .addConverterFactory(GsonConverterFactory.create())
