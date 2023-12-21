@@ -1,4 +1,4 @@
-package com.barisgungorr.newsappcompose.onboarding.components
+package com.barisgungorr.newsappcompose.presentation.onboarding.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.Image

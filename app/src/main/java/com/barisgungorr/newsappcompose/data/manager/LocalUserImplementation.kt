@@ -5,7 +5,7 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
 import com.barisgungorr.newsappcompose.domain.manager.LocalUserManager
-import com.barisgungorr.newsappcompose.util.Constans
+import com.barisgungorr.newsappcompose.util.Constants
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -25,10 +25,10 @@ class LocalUserImplementation(
             }
         }
 }
-private val Context.dataStore by preferencesDataStore(Constans.USER_SETTINGS)
+private val Context.dataStore by preferencesDataStore(Constants.USER_SETTINGS)
 
 private object PreferencesKeys {
 
-    val APP_ENTRY = booleanPreferencesKey(name = Constans.APP_ENTRY)
+    val APP_ENTRY = booleanPreferencesKey(name = Constants.APP_ENTRY)
 
 }

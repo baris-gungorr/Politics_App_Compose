@@ -1,4 +1,4 @@
-package com.barisgungorr.newsappcompose.onboarding
+package com.barisgungorr.newsappcompose.presentation.onboarding
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

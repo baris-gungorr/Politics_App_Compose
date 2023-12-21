@@ -1,7 +1,7 @@
 package com.barisgungorr.newsappcompose.data.remote
 
 import com.barisgungorr.newsappcompose.data.remote.dto.NewsResponse
-import com.barisgungorr.newsappcompose.util.Constans.API_KEY
+import com.barisgungorr.newsappcompose.util.Constants.API_KEY
 import retrofit2.http.GET
 import retrofit2.http.Query
 

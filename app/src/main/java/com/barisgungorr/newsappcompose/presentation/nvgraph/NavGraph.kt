@@ -8,8 +8,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
-import com.barisgungorr.newsappcompose.onboarding.OnBoardingViewModel
-import com.barisgungorr.newsappcompose.onboarding.components.OnBoardingScreen
+import com.barisgungorr.newsappcompose.presentation.onboarding.OnBoardingViewModel
+import com.barisgungorr.newsappcompose.presentation.onboarding.components.OnBoardingScreen
 
 
 @Composable

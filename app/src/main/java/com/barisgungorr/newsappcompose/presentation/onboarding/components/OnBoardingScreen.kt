@@ -1,4 +1,4 @@
-package com.barisgungorr.newsappcompose.onboarding.components
+package com.barisgungorr.newsappcompose.presentation.onboarding.components
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
@@ -19,9 +19,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.barisgungorr.newsappcompose.common.NewsButton
-import com.barisgungorr.newsappcompose.common.NewsTextButton
-import com.barisgungorr.newsappcompose.onboarding.OnBoardingEvent
+import com.barisgungorr.newsappcompose.presentation.common.NewsButton
+import com.barisgungorr.newsappcompose.presentation.common.NewsTextButton
+import com.barisgungorr.newsappcompose.presentation.onboarding.OnBoardingEvent
 import com.barisgungorr.newsappcompose.presentation.Dimens.MediumPadding2
 import com.barisgungorr.newsappcompose.presentation.Dimens.pageIndicator
 import com.barisgungorr.newsappcompose.presentation.pages
