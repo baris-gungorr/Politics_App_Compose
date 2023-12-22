@@ -11,6 +11,7 @@ import com.barisgungorr.newsappcompose.domain.usecases.app_entry.ReadAppEntry
 import com.barisgungorr.newsappcompose.domain.usecases.app_entry.SaveAppEntry
 import com.barisgungorr.newsappcompose.domain.usecases.news.GetNews
 import com.barisgungorr.newsappcompose.domain.usecases.news.NewsUseCase
+import com.barisgungorr.newsappcompose.domain.usecases.news.SearchNews
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -60,7 +61,8 @@ object AppModule {
         newsRepository: NewsRepository
     ) : NewsUseCase {
         return NewsUseCase(
-            getNews = GetNews(newsRepository)
+            getNews = GetNews(newsRepository),
+            searchNews = SearchNews(newsRepository)
         )
     }
 }

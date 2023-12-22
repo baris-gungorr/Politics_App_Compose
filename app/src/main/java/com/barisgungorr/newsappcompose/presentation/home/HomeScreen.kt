@@ -63,26 +63,19 @@ fun HomeScreen(articles: LazyPagingItems<Article>, navigate:(String) -> Unit) {
         )
 
         Spacer(modifier = Modifier.height(MediumPadding1))
-        /*
-         SearchBar(
+
+        com.barisgungorr.newsappcompose.presentation.common.SearchBar(
             modifier = Modifier
                 .padding(horizontal = MediumPadding1)
                 .fillMaxWidth(),
-            text = query,
+            text = "",
             readOnly = true,
-            onValueChange = { query = it },
-            onSearch = { onSearch(query) },
+            onValueChange = {},
+            onSearch = {},
             onClick = {
                 navigate(Route.SearchScreen.route)
             }
         )
-
-         */
-
-
-
-
-    }
 
 
         Spacer(modifier = Modifier.height(MediumPadding1))
@@ -105,3 +98,4 @@ fun HomeScreen(articles: LazyPagingItems<Article>, navigate:(String) -> Unit) {
             }
         )
     }
+}
