@@ -88,12 +88,12 @@ dependencies {
     implementation("androidx.paging:paging-runtime:3.3.0-alpha02")
     //Accompanist
     implementation ("com.google.accompanist:accompanist-systemuicontroller:0.31.4-beta")
-
     //Coil
     implementation("io.coil-kt:coil-compose:2.4.0")
-
-
-
     //Compose Foundation
     implementation ("androidx.compose.foundation:foundation:1.4.3")
+    //Room
+    implementation("androidx.room:room-runtime:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
 }
