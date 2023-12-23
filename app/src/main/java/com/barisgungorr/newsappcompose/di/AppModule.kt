@@ -1,6 +1,10 @@
 package com.barisgungorr.newsappcompose.di
 
 import android.app.Application
+import androidx.room.Room
+import com.barisgungorr.newsappcompose.data.local.NewsDao
+import com.barisgungorr.newsappcompose.data.local.NewsDataBase
+import com.barisgungorr.newsappcompose.data.local.NewsTypeConvertor
 import com.barisgungorr.newsappcompose.data.manager.LocalUserImplementation
 import com.barisgungorr.newsappcompose.data.remote.NewsApi
 import com.barisgungorr.newsappcompose.data.repository.NewsRepositoryImpl
@@ -12,6 +16,7 @@ import com.barisgungorr.newsappcompose.domain.usecases.app_entry.SaveAppEntry
 import com.barisgungorr.newsappcompose.domain.usecases.news.GetNews
 import com.barisgungorr.newsappcompose.domain.usecases.news.NewsUseCase
 import com.barisgungorr.newsappcompose.domain.usecases.news.SearchNews
+import com.barisgungorr.newsappcompose.util.Constants.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -46,9 +51,6 @@ object AppModule {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(NewsApi::class.java)
-
-
-
     @Provides
     @Singleton
     fun provideNewsRepository(
@@ -65,4 +67,26 @@ object AppModule {
             searchNews = SearchNews(newsRepository)
         )
     }
+    @Provides
+    @Singleton
+    fun provideNewsDatabase(
+        application:Application
+    ): NewsDataBase {
+        return Room.databaseBuilder(
+            context = application,
+            klass = NewsDataBase::class.java,
+            name = DATABASE_NAME
+        ).addTypeConverter(NewsTypeConvertor())
+            .fallbackToDestructiveMigration()
+            .build()
+    }
+    @Provides
+    @Singleton
+    fun provideNewsDao(
+        newsDatabase:NewsDataBase
+    ): NewsDao = newsDatabase.newsDao
+
+
+
+
 }

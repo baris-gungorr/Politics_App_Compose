@@ -11,9 +11,15 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
+import androidx.lifecycle.lifecycleScope
+import com.barisgungorr.newsappcompose.data.local.NewsDao
+import com.barisgungorr.newsappcompose.domain.model.Article
+import com.barisgungorr.newsappcompose.domain.model.Source
 import com.barisgungorr.newsappcompose.presentation.nvgraph.NavGraph
 import com.barisgungorr.newsappcompose.ui.theme.NewsAppComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -22,6 +28,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
+
+
         installSplashScreen().apply {
             setKeepOnScreenCondition{
                 viewModel.splashCondition
@@ -36,7 +44,6 @@ class MainActivity : ComponentActivity() {
                     .fillMaxSize()) {
                     val startDestination = viewModel._startDestination
                     NavGraph(startDestination =startDestination)
-
 
                 }
             }
