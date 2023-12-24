@@ -13,9 +13,12 @@ import com.barisgungorr.newsappcompose.domain.repository.NewsRepository
 import com.barisgungorr.newsappcompose.domain.usecases.app_entry.AppEntryUseCases
 import com.barisgungorr.newsappcompose.domain.usecases.app_entry.ReadAppEntry
 import com.barisgungorr.newsappcompose.domain.usecases.app_entry.SaveAppEntry
+import com.barisgungorr.newsappcompose.domain.usecases.news.DeleteArticle
 import com.barisgungorr.newsappcompose.domain.usecases.news.GetNews
 import com.barisgungorr.newsappcompose.domain.usecases.news.NewsUseCase
 import com.barisgungorr.newsappcompose.domain.usecases.news.SearchNews
+import com.barisgungorr.newsappcompose.domain.usecases.news.SelectArticle
+import com.barisgungorr.newsappcompose.domain.usecases.news.UpsertArticle
 import com.barisgungorr.newsappcompose.util.Constants.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
@@ -60,11 +63,15 @@ object AppModule {
     @Provides
     @Singleton
     fun provideNewsUseCase(
-        newsRepository: NewsRepository
+        newsRepository: NewsRepository,
+        newsDao: NewsDao
     ) : NewsUseCase {
         return NewsUseCase(
             getNews = GetNews(newsRepository),
-            searchNews = SearchNews(newsRepository)
+            searchNews = SearchNews(newsRepository),
+            upsertArticle = UpsertArticle(newsDao),
+            deleteArticle = DeleteArticle(newsDao),
+            selectArticle = SelectArticle(newsDao)
         )
     }
     @Provides

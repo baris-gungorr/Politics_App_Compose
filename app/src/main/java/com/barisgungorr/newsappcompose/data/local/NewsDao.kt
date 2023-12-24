@@ -18,7 +18,7 @@ interface NewsDao {
     suspend fun delete(article: Article)
 
     @Query("SELECT * FROM Article")
-    fun getArticles(): Flow<List<Article>>  // burada neden fun kullandık suspend fun yerine ? cevap: çünkü burada bir işlem yapmıyoruz sadece veri çekiyoruz
+    fun getArticles(): Flow<List<Article>>
 
 
 }
