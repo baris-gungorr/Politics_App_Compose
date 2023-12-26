@@ -2,14 +2,13 @@ package com.barisgungorr.newsappcompose.domain.usecases.news
 
 import com.barisgungorr.newsappcompose.data.local.NewsDao
 import com.barisgungorr.newsappcompose.domain.model.Article
-import javax.inject.Inject
 
-class UpsertArticle @Inject constructor(
+class GetArticle (
     private val newsDao: NewsDao
 ) {
 
-    suspend operator fun invoke(article: Article){
-        newsDao.upsert(article = article)
+    suspend operator fun invoke(url: String): Article?{
+        return newsDao.getArticle(url = url)
     }
 
 }

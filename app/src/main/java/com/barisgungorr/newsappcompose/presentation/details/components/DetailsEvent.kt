@@ -1,5 +1,9 @@
 package com.barisgungorr.newsappcompose.presentation.details.components
 
+import com.barisgungorr.newsappcompose.domain.model.Article
+
 sealed class DetailsEvent {
-    object SaveArticle : DetailsEvent()
+    data class UpsertDeleteArticle(val article: Article): DetailsEvent()
+
+     object RemoveSideEffect : DetailsEvent()
 }

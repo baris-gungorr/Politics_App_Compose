@@ -31,10 +31,13 @@ import com.barisgungorr.newsappcompose.presentation.Dimens.MediumPadding1
 import com.barisgungorr.newsappcompose.presentation.common.ArticlesList
 import com.barisgungorr.newsappcompose.presentation.nvgraph.Route
 
-@OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun HomeScreen(articles: LazyPagingItems<Article>, navigate:(String) -> Unit) {
-
+fun HomeScreen(
+    articles: LazyPagingItems<Article>,
+    navigateToSearch: () -> Unit,
+    navigateToDetails: (Article) -> Unit
+) {
     val titles by remember {
         derivedStateOf {
             if (articles.itemCount > 10) {
@@ -73,7 +76,7 @@ fun HomeScreen(articles: LazyPagingItems<Article>, navigate:(String) -> Unit) {
             onValueChange = {},
             onSearch = {},
             onClick = {
-                navigate(Route.SearchScreen.route)
+               navigateToSearch()
             }
         )
 
@@ -93,9 +96,7 @@ fun HomeScreen(articles: LazyPagingItems<Article>, navigate:(String) -> Unit) {
         ArticlesList(
             modifier = Modifier.padding(horizontal = MediumPadding1),
             articles = articles,
-            onClick = {
-                //TODO: Navigate to Details Screen
-            }
+            onClick = navigateToDetails
         )
     }
 }

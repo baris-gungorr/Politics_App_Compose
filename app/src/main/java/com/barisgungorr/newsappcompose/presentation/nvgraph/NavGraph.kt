@@ -1,22 +1,14 @@
 package com.barisgungorr.newsappcompose.presentation.nvgraph
 
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
-import androidx.paging.compose.collectAsLazyPagingItems
-import com.barisgungorr.newsappcompose.presentation.bookmark.BookMarkViewModel
-import com.barisgungorr.newsappcompose.presentation.bookmark.BookmarkScreen
-import com.barisgungorr.newsappcompose.presentation.home.HomeScreen
-import com.barisgungorr.newsappcompose.presentation.home.HomeViewModel
+import com.barisgungorr.newsappcompose.presentation.news_navigator.NewsNavigator
 import com.barisgungorr.newsappcompose.presentation.onboarding.OnBoardingViewModel
 import com.barisgungorr.newsappcompose.presentation.onboarding.components.OnBoardingScreen
-import com.barisgungorr.newsappcompose.presentation.search.SearchScreen
-import com.barisgungorr.newsappcompose.presentation.search.SearchViewModel
 
 
 @Composable
@@ -44,8 +36,7 @@ fun NavGraph(
             startDestination = Route.HomeScreen.route
         ) {
             composable(route = Route.HomeScreen.route) {
-           val viewModel: BookMarkViewModel = hiltViewModel()
-                BookmarkScreen(state = viewModel.state.value, navigateToDetails ={} )
+            NewsNavigator()
             }
         }
     }

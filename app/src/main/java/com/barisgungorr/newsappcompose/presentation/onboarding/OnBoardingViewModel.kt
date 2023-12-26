@@ -26,4 +26,3 @@ class OnBoardingViewModel @Inject constructor(
     }
 }
 
-// bu sınıfın amacı, kullanıcı uygulamaya ilk girdiğinde onboarding ekranını göstermek ve kullanıcı onboarding ekranını geçtiğinde kullanıcıyı ana ekrana yönlendirmek.
