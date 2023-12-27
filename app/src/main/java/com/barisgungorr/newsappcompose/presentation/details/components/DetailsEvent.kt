@@ -5,5 +5,8 @@ import com.barisgungorr.newsappcompose.domain.model.Article
 sealed class DetailsEvent {
     data class UpsertDeleteArticle(val article: Article): DetailsEvent()
 
-     object RemoveSideEffect : DetailsEvent()
+    // data object RemoveSideEffect : DetailsEvent()
+
+    data object RemoveSideEffect : DetailsEvent()
+   // data object UpsertDeleteArticle : DetailsEvent()
 }

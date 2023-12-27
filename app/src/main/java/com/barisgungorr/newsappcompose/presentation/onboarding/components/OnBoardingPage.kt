@@ -60,9 +60,9 @@ fun OnBoardingPagePreview() {
     NewsAppComposeTheme{
         OnBoardingPage(
             page = Page(
-                title = "Lorem Ipsum is simply dummy",
-                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                image = R.drawable.onboarding1
+                title = "Shape Your News Feed",
+                description = "Are you ready for an adventure full of knowledge, not a simple text?",
+                image = R.drawable.ob1
             )
         )
     }

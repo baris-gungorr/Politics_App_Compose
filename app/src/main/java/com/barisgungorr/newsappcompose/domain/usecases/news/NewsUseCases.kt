@@ -7,5 +7,6 @@ data class NewsUseCases(
     val deleteArticle: DeleteArticle,
     val getArticles: GetArticles,
     val getArticle: GetArticle
+
 )
 
