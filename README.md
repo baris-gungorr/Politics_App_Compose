@@ -106,8 +106,8 @@ Application architecture: MVVM
 ```
 
 ```groovy
-plugins {
   plugins {
+
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id ("kotlin-kapt")
@@ -115,5 +115,12 @@ plugins {
     id ("kotlin-parcelize")
 }
 
+
+```
+
+```groovy
+👇 API
+
+- https://newsapi.org/
 
 ```
