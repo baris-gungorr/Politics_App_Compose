@@ -5,6 +5,9 @@
       <entry key="DetailsScreenPreview">
         <State />
       </entry>
+      <entry key="OnBoardingPagePreview">
+        <State />
+      </entry>
       <entry key="app">
         <State>
           <runningDeviceTargetSelectedWithDropDown>

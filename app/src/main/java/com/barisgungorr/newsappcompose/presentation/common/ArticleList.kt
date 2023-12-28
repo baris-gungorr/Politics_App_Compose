@@ -35,7 +35,6 @@ fun ArticlesList(
             }
         }
 
-
 @Composable
 fun ArticlesList(
     modifier: Modifier = Modifier,
@@ -44,7 +43,6 @@ fun ArticlesList(
 ) {
 
     val handlePagingResult = handlePagingResult(articles)
-
 
     if (handlePagingResult) {
         LazyColumn(
@@ -89,7 +87,6 @@ fun handlePagingResult(articles: LazyPagingItems<Article>): Boolean {
         }
     }
 }
-
 @Composable
 fun ShimmerEffect() {
     Column(verticalArrangement = Arrangement.spacedBy(MediumPadding1)){

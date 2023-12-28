@@ -1,25 +1,16 @@
 package com.barisgungorr.newsappcompose.presentation.news_navigator
 
-import android.annotation.SuppressLint
-import android.app.ProgressDialog.show
-import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Snackbar
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
@@ -69,14 +60,11 @@ fun NewsNavigator() {
         }
     }
 
-
-
     val isBottomBarVisible = remember(key1 = backStackState) {
         backStackState?.destination?.route == Route.HomeScreen.route ||
                 backStackState?.destination?.route == Route.SearchScreen.route ||
                 backStackState?.destination?.route == Route.BookmarkScreen.route
     }
-
 
     Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = {
         if (isBottomBarVisible) {
@@ -157,10 +145,8 @@ fun NewsNavigator() {
                     ?.let { article ->
                         DetailScreen(
                             article = article,
-                            event = viewModel::onEvent,
-                            navigateUp = { navController.navigateUp() },
-                            sideEffect = viewModel.sideEffect
-                        )
+                            event = viewModel::onEvent
+                        ) { navController.navigateUp() }
                     }
 
             }
@@ -181,7 +167,6 @@ fun NewsNavigator() {
         }
     }
 }
-
 @Composable
 fun OnBackClickStateSaver(navController: NavController) {
     BackHandler(true) {
@@ -191,7 +176,6 @@ fun OnBackClickStateSaver(navController: NavController) {
         )
     }
 }
-
 private fun navigateToTab(navController: NavController, route: String) {
     navController.navigate(route) {
         navController.graph.startDestinationRoute?.let { screen_route ->
@@ -203,7 +187,6 @@ private fun navigateToTab(navController: NavController, route: String) {
         restoreState = true
     }
 }
-
 private fun navigateToDetails(navController: NavController, article: Article) {
     navController.currentBackStackEntry?.savedStateHandle?.set("article", article)
     navController.navigate(

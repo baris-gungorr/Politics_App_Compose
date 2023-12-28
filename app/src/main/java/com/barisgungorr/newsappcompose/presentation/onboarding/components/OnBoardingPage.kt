@@ -52,7 +52,6 @@ fun OnBoardingPage(
         )
     }
 }
-
 @Preview(showBackground = true)
 @Preview(uiMode = UI_MODE_NIGHT_YES)
 @Composable

@@ -32,7 +32,10 @@ import kotlinx.coroutines.launch
 fun OnBoardingScreen(
     event: (OnBoardingEvent) -> Unit
 ) {
-    Column(modifier = Modifier.fillMaxSize()) {
+    Column(
+        modifier = Modifier.fillMaxSize()
+    ) {
+
         val pagerState = rememberPagerState(initialPage = 0) {
             pages.size
         }
@@ -64,7 +67,6 @@ fun OnBoardingScreen(
                 pagesSize = pages.size,
                 selectedPage = pagerState.currentPage
             )
-
 
             Row(verticalAlignment = Alignment.CenterVertically) {
                 val scope = rememberCoroutineScope()

@@ -9,5 +9,4 @@ import com.barisgungorr.newsappcompose.domain.model.Article
 @TypeConverters(NewsTypeConvertor::class)
 abstract class NewsDatabase: RoomDatabase() {
     abstract val newsDao:NewsDao
-
  }

@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.Flow
 class GetArticles(
     private val newsDao: NewsDao
 ) {
-
     operator fun invoke(): Flow<List<Article>> {
         return newsDao.getArticles()
     }

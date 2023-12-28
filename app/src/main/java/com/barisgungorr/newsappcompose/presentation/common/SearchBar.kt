@@ -26,8 +26,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.barisgungorr.newsappcompose.R
 import com.barisgungorr.newsappcompose.ui.theme.NewsAppComposeTheme
 
@@ -40,14 +42,15 @@ fun SearchBar(
     onClick: (() -> Unit)? = null,
     onValueChange: (String) -> Unit,
     onSearch: () -> Unit
+
 ) {
 
     val interactionSource = remember {
         MutableInteractionSource()
     }
     val isClicked = interactionSource.collectIsPressedAsState().value
-    LaunchedEffect(key1 = isClicked){
-        if(isClicked){
+    LaunchedEffect(key1 = isClicked) {
+        if (isClicked) {
             onClick?.invoke()
         }
     }
@@ -72,7 +75,8 @@ fun SearchBar(
                 Text(
                     text = "Search",
                     style = MaterialTheme.typography.bodySmall,
-                    color = colorResource(id = R.color.placeholder)
+                    color = colorResource(id = R.color.placeholder),
+                    fontSize = 18.sp
                 )
             },
             shape = MaterialTheme.shapes.medium,
@@ -83,18 +87,23 @@ fun SearchBar(
                 disabledIndicatorColor = Color.Transparent,
                 errorIndicatorColor = Color.Transparent,
                 focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent
-            ),
+                unfocusedIndicatorColor = Color.Transparent,
+
+                ),
             singleLine = true,
-            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+            keyboardOptions = KeyboardOptions(
+                imeAction = ImeAction.Search,
+                capitalization = KeyboardCapitalization.Sentences
+            ),
             keyboardActions = KeyboardActions(
                 onSearch = {
                     onSearch()
                 }
             ),
-            textStyle = MaterialTheme.typography.bodySmall,
+            textStyle = MaterialTheme.typography.bodySmall.copy(fontSize = 18.sp),
             interactionSource = interactionSource
         )
+
     }
 }
 
@@ -115,8 +124,7 @@ fun Modifier.searchBar(): Modifier = composed {
 @Composable
 fun SearchBarPreview() {
     NewsAppComposeTheme {
-        SearchBar(text = "", onValueChange = {}, readOnly = false) {
-
+        SearchBar(text = "", readOnly = false, onValueChange = {}) {
         }
     }
 }

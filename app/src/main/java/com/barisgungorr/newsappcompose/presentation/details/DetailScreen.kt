@@ -3,6 +3,7 @@ package com.barisgungorr.newsappcompose.presentation.details
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -30,18 +31,17 @@ import com.barisgungorr.newsappcompose.presentation.Dimens.MediumPadding1
 import com.barisgungorr.newsappcompose.presentation.details.components.DetailsEvent
 import com.barisgungorr.newsappcompose.presentation.details.components.DetailsTopBar
 import com.barisgungorr.newsappcompose.ui.theme.NewsAppComposeTheme
-import com.barisgungorr.newsappcompose.util.UIComponent
 
 @SuppressLint("QueryPermissionsNeeded")
 @Composable
 fun DetailScreen(
     article: Article,
     event: (DetailsEvent) -> Unit,
-    sideEffect: UIComponent?,
     navigateUp: () -> Unit
 ) {
     val context = LocalContext.current
-    Column(modifier = Modifier.fillMaxSize().statusBarsPadding()) {
+    Column(
+        modifier = Modifier.fillMaxSize().statusBarsPadding()) {
         DetailsTopBar(
             onBrowsingClick = {
                 Intent(Intent.ACTION_VIEW).also {
@@ -62,8 +62,10 @@ fun DetailScreen(
             },
             onBookMarkClick = {
                 event(DetailsEvent.UpsertDeleteArticle(article = article))
+                Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show()
             },
             onBackClick = navigateUp
+
         )
 
         LazyColumn(
@@ -122,8 +124,7 @@ fun DetailsScreenPreview() {
                 url = "https://consent.google.com/ml?continue=https://news.google.com/rss/articles/CBMiaWh0dHBzOi8vY3J5cHRvc2F1cnVzLnRlY2gvY29pbmJhc2Utc2F5cy1hcHBsZS1ibG9ja2VkLWl0cy1sYXN0LWFwcC1yZWxlYXNlLW9uLW5mdHMtaW4td2FsbGV0LXJldXRlcnMtY29tL9IBAA?oc%3D5&gl=FR&hl=en-US&cm=2&pc=n&src=1",
                 urlToImage = "https://media.wired.com/photos/6495d5e893ba5cd8bbdc95af/191:100/w_1280,c_limit/The-EU-Rules-Phone-Batteries-Must-Be-Replaceable-Gear-2BE6PRN.jpg"
             ),
-            event = {},
-            sideEffect = null
+            event = {}
         ) {
 
         }

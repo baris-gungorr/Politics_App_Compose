@@ -16,7 +16,6 @@ class SearchViewModel @Inject constructor(
     private var _state = mutableStateOf(SearchState())
     val state: State<SearchState> = _state
 
-
     fun onEvent(event: SearchEvent) {
         when (event) {
             is SearchEvent.UpdateSearchQuery -> {
@@ -28,7 +27,6 @@ class SearchViewModel @Inject constructor(
             }
         }
     }
-
     private fun searchNews() {
         val articles = searchNewsUseCase(
             searchQuery = _state.value.searchQuery,
@@ -36,6 +34,4 @@ class SearchViewModel @Inject constructor(
         ).cachedIn(viewModelScope)
         _state.value = _state.value.copy(articles = articles)
     }
-
-
 }

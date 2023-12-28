@@ -5,6 +5,7 @@ import androidx.paging.PagingState
 import com.barisgungorr.newsappcompose.domain.model.Article
 
 class SearchNewsPagingResource(
+
     private val api: NewsApi,
     private val searchQuery: String,
     private val sources: String
